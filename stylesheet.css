@@ -1,4 +1,53 @@
-h1, p {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+/* Fjerner standard-margen og -padding på alle elementer, så vi selv bestemmer layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hele baggrunden på siden */
+body {
+    /* Baggrundsbillede fra mappen Baggrund: ingen gentagelse og centreret samt fast */
+    background: url('Baggrund/Pokerhaender.png') no-repeat center center fixed;
+    /* Strækker billedet så det fylder hele skærmen uden hvide kanter */
+    background-size: 100% 100%;
+    /* Højden præcis som skærmens vindue – undgår scroll */
+    height: 100vh;
+    /* Gør body til en fleksibel beholder, så indholdet kan centreres */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Beholderen, der viser kortene på hånden */
+.haand {
+    display: flex;               /* Kortene ligger på række */
+    flex-wrap: wrap;            /* Hvis der er mange kort, rykker de ned på næste linje */
+    justify-content: center;    /* Centrerer kortene horisontalt */
+    gap: 12px;                  /* Afstand mellem kortene */
+    margin-top: 480px;          /* Skubber kortene ned, så de rammer de tomme hænder på baggrundsbilledet */
+}
+
+/* Selve kortbillederne */
+.haand img {
+    width: 160px;               /* Bredden på kortene*/
+    border-radius: 8px;         /* Runde hjørner på kortene */
+}
+
+/* Knapperne */
+button {
+    background: #ffaa33;        /* Orange baggrund fordi jeg elsker orange */
+    border: none;               /* Ingen kant */
+    padding: 10px 20px;         /* Luft inden i knappen */
+    margin: 20px 5px 0;         /* Afstand til kortene og mellem knapperne */
+    font-size: 1rem;            /* Skriftstørrelse */
+    font-weight: bold;          /* Fed skrift */
+    border-radius: 40px;        /* Runde knapper */
+    cursor: pointer;            /* Gør markøren til en hånd, når man holder over */
+}
+
+button:hover {
+    background: #ff9900;        /* Mørkere orange, når musen er over */
 }
