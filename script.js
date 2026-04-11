@@ -4,6 +4,9 @@ let deck = [];
 let haand = [];
 resetDeck();
 console.log(deck);
+traekHaand();
+console.log(haand);
+console.log(deck);
 
 
 function resetDeck(){
