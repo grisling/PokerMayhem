@@ -6,7 +6,8 @@ console.log(deck);
 
 
 function resetDeck(){
-    deck = STANDARDDECK.shuffle();
+    deck = STANDARDDECK;
+    deck = bland(deck);
     
 }
 
@@ -16,4 +17,18 @@ function faaKuloer(){
 
 function faaVaerdi(){
 
+}
+//følgende funktion er lånt herfra: https://bost.ocks.org/mike/shuffle/
+//blander et array. Kan senere bruges, skulle vi have behov for at blande andre ting end kortene.
+function bland(ublandetDeck){
+    let m =ublandetDeck.length, t, i;
+
+    while (m){
+        i = Math.floor(Math.random() * m--);
+
+        t = ublandetDeck[m];
+        ublandetDeck[m] = ublandetDeck[i];
+        ublandetDeck[i] = t;
+    }
+    return ublandetDeck;
 }
