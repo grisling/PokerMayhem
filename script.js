@@ -6,7 +6,7 @@ let spillerLiv = 40;
 
 
 function resetDeck(){
-    console.log("kommer vi hertil?")
+    console.log("kommer vi hertil?");
     deck = STANDARDDECK;
     deck = bland(deck);
     console.log(deck);
@@ -135,5 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function kontrollerBedsteHaand(){
     if (haand.length == 5) {
         //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
+        console.log("checker pokerhånd");
     }
 }
