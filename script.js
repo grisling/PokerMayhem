@@ -127,3 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Starter med et nyt spil (så der er en blandet bunke, men ingen kort på hånden)
     nytSpil();
 });
+
+function kontrollerBedsteHaand(){
+    if (haand.length == 5) {
+        //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
+    }
+}
