@@ -51,9 +51,11 @@ function traekKort(){
 }
 
 function traekHaand(){
+    if (haand.length > 4){
     for (let i = 0; i < 5; i++){
         traekKort();
     }
+}
 }
 
 // (UI)
@@ -113,10 +115,8 @@ function nytSpil() {
 
 // Træk 5 kort og opdater visningen
 function trakHaandOgVis() {
-    if (deck.length < 5) {
     traekHaand();  
     opdaterVisning();
-}
 }
 
 // Når hele HTML-siden er indlæst (DOMContentLoaded), sætter vi knappernes funktioner og starter spillet
