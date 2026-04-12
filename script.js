@@ -51,7 +51,7 @@ function traekKort(){
 }
 
 function traekHaand(){
-    if (haand.length > 4){
+    if (haand.length < 4){
     for (let i = 0; i < 5; i++){
         traekKort();
     }
