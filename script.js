@@ -6,10 +6,8 @@ let spillerLiv = 40;
 
 
 function resetDeck(){
-    console.log("kommer vi hertil?");
     deck = STANDARDDECK;
     deck = bland(deck);
-    console.log(deck);
 }
 
 function faaKuloer(kortnummer){
@@ -132,9 +130,112 @@ document.addEventListener("DOMContentLoaded", () => {
     nytSpil();
 });
 
-function kontrollerBedsteHaand(){
+function kontrollerBedsteHaand(kontrolHaand){
     if (haand.length == 5) {
         //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
         console.log("checker pokerhånd");
+        //Sortér hånden. Kode herfra: https://www.geeksforgeeks.org/javascript/how-to-sort-numeric-array-using-javascript/
+        kontrolHaand.sort((a, b) => Math.abs(x) - Math.abs(y));
+
+        //Kontroller royal flush
+        //Starter med at kontrollere om det er en royal straight.
+        if (faaVaerdi(kontrolHaand[0]) == 1 && faaVaerdi(kontrolHaand[1]) == 10 && faaVaerdi(kontrolHaand[2]) == 11 && faaVaerdi(kontrolHaand[3]) == 12 && faaVaerdi(kontrolHaand[4]) == 13){
+            //Hvis det er en royal straight, så kontroller om de er i samme kulør.
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+                console.log("royal flush");
+            }
+
+        //Kontroller straight flush
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
+            //Hvis det er en straight, så kontroller om de er i samme kulør.
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+                console.log("straight flush");
+            }
+        //Der er en særlig case hvor straight flush kan være 10, J, Q, K, A.
+        if (faaVaerdi(kontrolHaand[0]) == 10 && faaVaerdi(kontrolHaand[1]) == 11 && faaVaerdi(kontrolHaand[2]) == 12 && faaVaerdi(kontrolHaand[3]) == 13 && faaVaerdi(kontrolHaand[4]) == 1){
+            //Hvis det er en straight, så kontroller om de er i samme kulør.
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+                console.log("straight flush");
+            }
+        }
+
+        //Kontroller fire ens
+        //Sortér hånden efter værdi
+        kontrolHaand.sort((a, b) => faaVaerdi(a) - faaVaerdi(b));
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+            console.log("fire ens");
+        }
+        else if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            console.log("fire ens");
+        }
+
+        //Kontroller fuldt hus
+        //starter med at kontrollere om der er 3 ens. Der findes kun 2 måder at have 3 ens på, hvis de skal indgå i et fuldt hus, når kortene er sorteret efter værdi.
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
+            //Hvis der er 3 ens i starten, så skal de sidste 2 kort være ens for at det er et fuldt hus.
+            if (faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+                console.log("fuldt hus");
+            }
+        }
+        else if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            //Hvis der er 3 ens i slutningen, så skal de første 2 kort være ens for at det er et fuldt hus.
+            if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
+                console.log("fuldt hus");
+            }
+
+
+        //Kontroller flush
+        if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+            console.log("flush");
+        }
+
+        //Kontroller straight
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
+            console.log("straight");
+        }
+        //igen er der en særlig case ligesom i straght flush, hvor straight kan være 10, J, Q, K, A.
+        if (faaVaerdi(kontrolHaand[0]) == 10 && faaVaerdi(kontrolHaand[1]) == 11 && faaVaerdi(kontrolHaand[2]) == 12 && faaVaerdi(kontrolHaand[3]) == 13 && faaVaerdi(kontrolHaand[4]) == 1){
+            console.log("straight");
+        }
+
+        //Kontroller tre ens
+        //Der er tre måder at have 3 ens på når de er sorteret efter værdi: AAAXX, XAAAX og XXAAA
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
+            console.log("tre ens");
+        }
+        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+            console.log("tre ens");
+        }
+        if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            console.log("tre ens");
+        }
+
+        //Kontroller to par
+        //Der er tre måder at have to par på når de er sorteret efter værdi: AABBX, AAXBB og XAABB
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+            console.log("to par");
+        }
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            console.log("to par");
+        }
+        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            console.log("to par");
+        }
+
+        //Kontroller par
+        //Der er fire måder at have et par på når de er sorteret efter værdi: AAXXX, XAAXX, XXAAX, XXXAA
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
+            console.log("par");
+        }
+        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
+            console.log("par");
+        }
+        if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+            console.log("par");
+        }
+        if (faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+            console.log("par");
+        }
+        
     }
 }
