@@ -24,10 +24,10 @@ body {
 /* Beholderen, der viser kortene på hånden */
 .haand {
     display: flex;               /* Kortene ligger på række */
-    flex-wrap: wrap;            /* Hvis der er mange kort, rykker de ned på næste linje */
+    flex-wrap: wrap;            /* Hvis der er mange kort, rykker de ned på næste linje. Ikke et problem længere men gør ikke noget at beholde */
     justify-content: center;    /* Centrerer kortene horisontalt */
     gap: 12px;                  /* Afstand mellem kortene */
-    margin-top: 480px;          /* Skubber kortene ned, så de rammer de tomme hænder på baggrundsbilledet */
+    margin-top: 480px;          /* Skubber kortene ned, så de rammer de tomme hænder på baggrundsbilledet...sådan nogenlunde */
 }
 
 /* Selve kortbillederne */
@@ -46,6 +46,20 @@ button {
     font-weight: bold;          /* Fed skrift */
     border-radius: 40px;        /* Runde knapper */
     cursor: pointer;            /* Gør markøren til en hånd, når man holder over */
+}
+
+/*resultat kassen */
+.resultat {
+    background: rgba(0,0,0,0.7);   /* Mørk, gennemsigtig baggrund, så mit smukke baggrundsbillede kan ses */
+    color: #ffaa33;                /* Orange tekst, samme orange som knapperne */
+    font-size: 1.5rem;             /* Gør teksten stor og tydelig */
+    font-weight: bold;             /* Fed skrift */
+    padding: 10px 20px;            /* Luft indeni boksen */
+    border-radius: 40px;           /* Runde hjørner samme som knapperne */
+    margin: 15px 0;                /* Afstand til kortene og knapperne */
+    text-align: center;            /* Centrerer teksten */
+    font-family: monospace;        /* Fast bredde på bogstaver */
+    letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
 }
 
 button:hover {
