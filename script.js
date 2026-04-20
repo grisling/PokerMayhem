@@ -33,7 +33,7 @@ function faaVaerdi(kortnummer){
 //følgende funktion er lånt herfra: https://bost.ocks.org/mike/shuffle/
 //blander et array. Kan senere bruges, skulle vi have behov for at blande andre ting end kortene.
 function bland(liste){
-    let m = ublandetDeck.length, t, i;
+    let m = liste.length, t, i;
     while (m){
         i = Math.floor(Math.random() * m--);
         t = liste[m];
@@ -144,7 +144,7 @@ function kontrollerBedsteHaand2(kontrolHaand){
         //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
         console.log("checker pokerhånd");
         //Sortér hånden. Kode herfra: https://www.geeksforgeeks.org/javascript/how-to-sort-numeric-array-using-javascript/
-        kontrolHaand.sort((a, b) => Math.abs(x) - Math.abs(y));
+        kontrolHaand.sort((a, b) => faaVaerdi(a) - faaVaerdi(b));
 
         //Kontroller royal flush
         //Starter med at kontrollere om det er en royal straight.
@@ -170,7 +170,7 @@ function kontrollerBedsteHaand2(kontrolHaand){
 
         //Kontroller fire ens
         //Sortér hånden efter værdi
-        kontrolHaand.sort((a, b) => faaVaerdi(a) - faaVaerdi(b));
+        
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             return "Fire ens";
         }
