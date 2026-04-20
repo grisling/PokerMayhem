@@ -1,5 +1,8 @@
 //1-13 hjerter 14-26 kloer 27-39 ruder 40-52 spar
-let STANDARDDECK = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52];
+let STANDARDDECK = [ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13,
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+                    40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52];
 let deck = [];
 let haand = [];
 let spillerLiv = 40;
@@ -70,25 +73,46 @@ function kontrollerBedsteHaand(kontrolHaand){
 
         //Kontroller royal flush
         //Starter med at kontrollere om det er en royal straight.
-        if (faaVaerdi(kontrolHaand[0]) == 1 && faaVaerdi(kontrolHaand[1]) == 10 && faaVaerdi(kontrolHaand[2]) == 11 && faaVaerdi(kontrolHaand[3]) == 12 && faaVaerdi(kontrolHaand[4]) == 13){
+        if (faaVaerdi(kontrolHaand[0]) == 1 &&
+         faaVaerdi(kontrolHaand[1]) == 10 &&
+         faaVaerdi(kontrolHaand[2]) == 11 &&
+          faaVaerdi(kontrolHaand[3]) == 12 &&
+           faaVaerdi(kontrolHaand[4]) == 13){
             //Hvis det er en royal straight, så kontroller om de er i samme kulør.
-            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) &&
+                faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) &&
+                faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) &&
+                faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4]))
+            {
                 return "Royal Flush";
             }
         }
 
 
         //Kontroller straight flush
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 &&
+         faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 &&
+          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 &&
+           faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
             //Hvis det er en straight, så kontroller om de er i samme kulør.
-            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) &&
+             faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) &&
+              faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) &&
+               faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
                 return "Straight Flush";
             }
         }
         //Der er en særlig case hvor straight flush kan være 10, J, Q, K, A.
-        if (faaVaerdi(kontrolHaand[0]) == 10 && faaVaerdi(kontrolHaand[1]) == 11 && faaVaerdi(kontrolHaand[2]) == 12 && faaVaerdi(kontrolHaand[3]) == 13 && faaVaerdi(kontrolHaand[4]) == 1){
+        if (faaVaerdi(kontrolHaand[0]) == 10 &&
+         faaVaerdi(kontrolHaand[1]) == 11 &&
+          faaVaerdi(kontrolHaand[2]) == 12 &&
+           faaVaerdi(kontrolHaand[3]) == 13 &&
+            faaVaerdi(kontrolHaand[4]) == 1){
             //Hvis det er en straight, så kontroller om de er i samme kulør.
-            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+            if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) &&
+             faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) &&
+              faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) &&
+               faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
                 return "Straight Flush";
             }
         }
@@ -97,23 +121,29 @@ function kontrollerBedsteHaand(kontrolHaand){
         //Kontroller fire ens
         //Sortér hånden efter værdi
         
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
+         faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
+          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             return "Fire ens";
         }
-        else if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+        else if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
+         faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
+          faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             return "Fire ens";
         }
 
 
         //Kontroller fuldt hus
         //starter med at kontrollere om der er 3 ens. Der findes kun 2 måder at have 3 ens på, hvis de skal indgå i et fuldt hus, når kortene er sorteret efter værdi.
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
+         faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
             //Hvis der er 3 ens i starten, så skal de sidste 2 kort være ens for at det er et fuldt hus.
             if (faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
                 return "Fuldt hus";
             }
         }
-        else if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+        else if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
+         faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             //Hvis der er 3 ens i slutningen, så skal de første 2 kort være ens for at det er et fuldt hus.
             if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
                 return "Fuldt hus";
@@ -122,18 +152,28 @@ function kontrollerBedsteHaand(kontrolHaand){
 
 
         //Kontroller flush
-        if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
+        if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) &&
+         faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) &&
+          faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) &&
+           faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
             return "Flush";
         }
 
 
         //Kontroller straight
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 &&
+         faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 &&
+          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 &&
+           faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
             console.log("straight");
             return "Straight";
         }
         //igen er der en særlig case ligesom i straght flush, hvor straight kan være 10, J, Q, K, A.
-        if (faaVaerdi(kontrolHaand[0]) == 10 && faaVaerdi(kontrolHaand[1]) == 11 && faaVaerdi(kontrolHaand[2]) == 12 && faaVaerdi(kontrolHaand[3]) == 13 && faaVaerdi(kontrolHaand[4]) == 1){
+        if (faaVaerdi(kontrolHaand[0]) == 10 &&
+         faaVaerdi(kontrolHaand[1]) == 11 &&
+          faaVaerdi(kontrolHaand[2]) == 12 &&
+           faaVaerdi(kontrolHaand[3]) == 13 &&
+            faaVaerdi(kontrolHaand[4]) == 1){
             console.log("straight");
             return "Straight";
         }
@@ -141,15 +181,18 @@ function kontrollerBedsteHaand(kontrolHaand){
 
         //Kontroller tre ens
         //Der er tre måder at have 3 ens på når de er sorteret efter værdi: AAAXX, XAAAX og XXAAA
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
+         faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
             console.log("tre ens");
             return "Tre ens";
         }
-        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
+         faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             console.log("tre ens");
             return "Tre ens";
         }
-        if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+        if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
+         faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("tre ens");
             return "Tre ens";
         }
@@ -158,18 +201,22 @@ function kontrollerBedsteHaand(kontrolHaand){
 
         //Kontroller to par
         //Der er tre måder at have to par på når de er sorteret efter værdi: AABBX, AAXBB og XAABB
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
+         faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             console.log("to par");
             return "To par";
         }
-        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+        if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
+         faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("to par");
             return "To par";
         }
-        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
+        if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
+         faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("to par");
             return "To par";
         }
+
 
 
         //Kontroller par
@@ -219,22 +266,12 @@ function hentKortSti(kortnummer) {
     let værdi = faaVaerdi(kortnummer);            // 1-13
     let værdiTekst;
     // Omdanner talværdi til den tekst, der bruges i filnavnene
-    switch (værdi) {
-        case 1:  værdiTekst = "Es"; break;
-        case 2:  værdiTekst = "To"; break;
-        case 3:  værdiTekst = "Tre"; break;
-        case 4:  værdiTekst = "Fire"; break;
-        case 5:  værdiTekst = "Fem"; break;
-        case 6:  værdiTekst = "Seks"; break;
-        case 7:  værdiTekst = "Syv"; break;
-        case 8:  værdiTekst = "Otte"; break;
-        case 9:  værdiTekst = "Ni"; break;
-        case 10: værdiTekst = "Ti"; break;
-        case 11: værdiTekst = "Knaegt"; break;
-        case 12: værdiTekst = "Dame"; break;
-        case 13: værdiTekst = "Konge"; break;
-        default: værdiTekst = værdi.toString();
-    }
+    const navne = [
+  null, "Es", "To", "Tre", "Fire", "Fem", "Seks",
+  "Syv", "Otte", "Ni", "Ti", "Knaegt", "Dame", "Konge"
+];
+
+const værdiTekst = navne[værdi] ?? værdi.toString();
     // Bygger den fulde sti: f.eks. "billeder/Hjerter_Es.png"
     return `${Kort_Mappe}${kulør}_${værdiTekst}.png`;
 }
