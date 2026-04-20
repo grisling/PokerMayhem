@@ -141,6 +141,7 @@ function kontrollerBedsteHaand(kontrolHaand) {
 
 function kontrollerBedsteHaand2(kontrolHaand){
     if (haand.length == 5) {
+        console.log("ny kode1");
         //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
         console.log("checker pokerhånd");
         //Sortér hånden. Kode herfra: https://www.geeksforgeeks.org/javascript/how-to-sort-numeric-array-using-javascript/
