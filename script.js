@@ -61,13 +61,6 @@ function traekHaand(){
 }
 }
 
-function givSkade(){
-    let bedstehaand = kontrollerBedsteHaand();
-    let skade = 10;
-    fjendeLiv = fjendeLiv - skade;
-    console.log(fjendeLiv);
-
-}
 
 function kontrollerBedsteHaand(kontrolHaand) {
     if (kontrolHaand.length !== 5) return "Ikke 5 kort";
@@ -144,6 +137,14 @@ function kontrollerBedsteHaand(kontrolHaand) {
     if (parCount === 1) return "Et par";
     
     return "Højt kort";
+}
+
+function givSkade(){
+    let bedstehaand = kontrollerBedsteHaand();
+    let skade = 10;
+    fjendeLiv = fjendeLiv - skade;
+    console.log(fjendeLiv);
+
 }
 
 // (UI)
