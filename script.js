@@ -197,7 +197,7 @@ function opdaterVisning() {
 // Nyt spil: Nulstiller bunken (blander) og tømmer hånden, derefter opdaterer visningen
 function nytSpil() {
     resetDeck();
-    console.log(deck);
+    console.log("er jeg her??");
     resethaand();
     opdaterVisning();
     // Nulstil resultatfeltet
