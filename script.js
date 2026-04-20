@@ -65,6 +65,7 @@ function givSkade(){
     let bedstehaand = kontrollerBedsteHaand();
     let skade = 10;
     fjendeLiv = fjendeLiv - skade;
+    console.log(fejndeLiv);
 
 }
 
@@ -196,6 +197,7 @@ function opdaterVisning() {
 // Nyt spil: Nulstiller bunken (blander) og tømmer hånden, derefter opdaterer visningen
 function nytSpil() {
     resetDeck();
+    console.log(deck);
     resethaand();
     opdaterVisning();
     // Nulstil resultatfeltet
