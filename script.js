@@ -140,7 +140,7 @@ function kontrollerBedsteHaand(kontrolHaand) {
 }
 
 function givSkade(){
-    let bedstehaand = kontrollerBedsteHaand();
+    let bedstehaand = kontrollerBedsteHaand(haand);
     let skade = 10;
     fjendeLiv = fjendeLiv - skade;
     console.log(fjendeLiv);
