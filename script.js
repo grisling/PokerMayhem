@@ -3,6 +3,7 @@ const STANDARDDECK = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
 let deck = [];
 let haand = [];
 let spillerLiv = 40;
+let fjendeLiv = 100;
 
 
 function resetDeck(){
@@ -58,6 +59,13 @@ function traekHaand(){
         traekKort();
     }
 }
+}
+
+function givSkade(){
+    let bedstehaand = kontrollerBedsteHaand();
+    let skade = 10;
+    fjendeLiv = fjendeLiv - skade;
+
 }
 
 function kontrollerBedsteHaand(kontrolHaand) {
@@ -136,6 +144,7 @@ function kontrollerBedsteHaand(kontrolHaand) {
     
     return "Højt kort";
 }
+
 // (UI)
 
 // Sti til mappen, hvor kortbillederne ligger
@@ -216,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Finder knapperne i HTML'en og fortæller, hvilken funktion der skal kaldes, når de klikkes
     document.getElementById("knapNytSpil").onclick = nytSpil;
     document.getElementById("knapTraekFem").onclick = trakHaandOgVis;
+    document.getElementById("knapGivSkade").onclick = givSkade;
     // Starter med et nyt spil (så der er en blandet bunke, men ingen kort på hånden)
     nytSpil();
     trakHaandOgVis();
