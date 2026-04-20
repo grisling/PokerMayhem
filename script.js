@@ -6,10 +6,7 @@ let spillerLiv = 40;
 let fjendeLiv = 100;
 
 
-function resetDeck(){
-    deck = STANDARDDECK;
-    deck = bland(deck);
-}
+
 
 function faaKuloer(kortnummer){
     if (kortnummer <= 13)
@@ -43,6 +40,11 @@ function bland(liste){
     return liste;
 }
 
+function resetDeck(){
+    deck = STANDARDDECK;
+    deck = bland(deck);
+}
+
 function resetHaand(){
     haand = [];
 }
@@ -52,8 +54,6 @@ function traekKort(){
 }
 
 function traekHaand(){
-    console.log(haand);
-    console.log(haand.length);
     if (haand.length < 4){
         for (let i = 0; i < 5; i++){
             traekKort();
@@ -64,9 +64,6 @@ function traekHaand(){
 
 function kontrollerBedsteHaand(kontrolHaand){
     if (haand.length == 5) {
-        console.log("ny kode1");
-        //TODO her skal poker-algoritmen skrves for at finde den bedste hånd og returnere den.
-        console.log("checker pokerhånd");
         //Sortér hånden. Kode herfra: https://www.geeksforgeeks.org/javascript/how-to-sort-numeric-array-using-javascript/
         kontrolHaand.sort((a, b) => faaVaerdi(a) - faaVaerdi(b));
 
