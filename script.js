@@ -4,6 +4,7 @@ let deck = [];
 let haand = [];
 let spillerLiv = 40;
 let fjendeLiv = 100;
+console.log(deck);
 
 
 function faaKuloer(kortnummer){
@@ -40,7 +41,7 @@ function bland(liste){
 
 function resetDeck(){
     console.log("woop Woop");
-    deck = STANDARDDECK;
+    deck = [...STANDARDDECK];
     console.log(deck);
     deck = bland(deck);
 }
