@@ -153,6 +153,7 @@ function kontrollerBedsteHaand2(kontrolHaand){
             if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
                 return "Royal Flush";
             }
+        }
 
         //Kontroller straight flush
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) - 1 && faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) - 1 && faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) - 1 && faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4]) - 1){
@@ -160,6 +161,7 @@ function kontrollerBedsteHaand2(kontrolHaand){
             if (faaKuloer(kontrolHaand[0]) == faaKuloer(kontrolHaand[1]) && faaKuloer(kontrolHaand[1]) == faaKuloer(kontrolHaand[2]) && faaKuloer(kontrolHaand[2]) == faaKuloer(kontrolHaand[3]) && faaKuloer(kontrolHaand[3]) == faaKuloer(kontrolHaand[4])){
                 return "Straight Flush";
             }
+        }
         //Der er en særlig case hvor straight flush kan være 10, J, Q, K, A.
         if (faaVaerdi(kontrolHaand[0]) == 10 && faaVaerdi(kontrolHaand[1]) == 11 && faaVaerdi(kontrolHaand[2]) == 12 && faaVaerdi(kontrolHaand[3]) == 13 && faaVaerdi(kontrolHaand[4]) == 1){
             //Hvis det er en straight, så kontroller om de er i samme kulør.
@@ -191,6 +193,7 @@ function kontrollerBedsteHaand2(kontrolHaand){
             if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
                 return "Fuldt hus";
             }
+        }
 
 
         //Kontroller flush
@@ -260,10 +263,6 @@ function kontrollerBedsteHaand2(kontrolHaand){
         else{
             return "Højt kort";
         }
-    }
-}
-        }
-        
     }
 }
         
@@ -344,6 +343,7 @@ function trakHaandOgVis() {
     // Vis pokerhånden i konsollen og i resultatfeltet
     if (haand.length === 5) {
         const haandNavn = kontrollerBedsteHaand2(haand);
+        console.log(haandNavn);
         console.log("Pokerhånd:", haandNavn);
         const resultatDiv = document.getElementById("haandResultat");
         if (resultatDiv) resultatDiv.innerText = haandNavn;
