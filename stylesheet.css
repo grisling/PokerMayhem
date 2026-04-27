@@ -61,6 +61,18 @@ button {
     font-family: monospace;        /* Fast bredde på bogstaver */
     letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
 }
+.liv-boks {
+    background: rgba(0,0,0,0.7);   /* Mørk, gennemsigtig baggrund, så mit smukke baggrundsbillede kan ses */
+    color: #ffaa33;                /* Orange tekst, samme orange som knapperne */
+    font-size: 1.2rem;             /* Gør teksten stor og tydelig */
+    font-weight: bold;             /* Fed skrift */
+    padding: 10px 20px;            /* Luft indeni boksen */
+    border-radius: 40px;           /* Runde hjørner samme som knapperne */
+    margin: 15px 0;                /* Afstand til kortene og knapperne */
+    text-align: center;            /* Centrerer teksten */
+    font-family: monospace;        /* Fast bredde på bogstaver */
+    letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
+}
 
 button:hover {
     background: #ff9900;        /* Mørkere orange, når musen er over */

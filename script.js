@@ -261,6 +261,8 @@ function givSkade(){
     fjendeLiv = fjendeLiv - skade;
     console.log(fjendeLiv);
 
+    // Opdater livboks//
+    document.getElementById("fjendeLiv").textContent = fjendeliv
 }
 
 // (UI)
