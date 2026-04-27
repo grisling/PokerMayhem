@@ -273,7 +273,6 @@ const Kort_Mappe = "billeder/";
 function hentKortSti(kortnummer) {
     const kulør = faaKuloer(kortnummer);          // "Hjerter", "Kloer", "Ruder", "Spar"
     let værdi = faaVaerdi(kortnummer);            // 1-13
-    let værdiTekst;
     // Omdanner talværdi til den tekst, der bruges i filnavnene
     const navne = [
   null, "Es", "To", "Tre", "Fire", "Fem", "Seks",
