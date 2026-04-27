@@ -244,7 +244,7 @@ function kontrollerBedsteHaand(kontrolHaand){
     
 
 
-function givSkade(){
+/*function givSkade(){
     let bedstehaand = kontrollerBedsteHaand(haand);
     let skade = 10;
     switch (bedstehaand){
@@ -261,7 +261,7 @@ function givSkade(){
     fjendeLiv = fjendeLiv - skade;
     console.log(fjendeLiv);
 
-}
+}*/
 
 // (UI)
 
@@ -280,7 +280,7 @@ function hentKortSti(kortnummer) {
   "Syv", "Otte", "Ni", "Ti", "Knaegt", "Dame", "Konge"
     ];
 
-    værdiTekst = navne[værdi] ?? værdi.toString();
+    const værdiTekst = navne[værdi] ?? værdi.toString();
         // Bygger den fulde sti: f.eks. "billeder/Hjerter_Es.png"
         return `${Kort_Mappe}${kulør}_${værdiTekst}.png`;
 }
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Finder knapperne i HTML'en og fortæller, hvilken funktion der skal kaldes, når de klikkes
     document.getElementById("knapNytSpil").onclick = nytSpil;
     document.getElementById("knapTraekFem").onclick = trakHaandOgVis;
-    document.getElementById("knapGivSkade").onclick = givSkade;
+    //document.getElementById("knapGivSkade").onclick = givSkade;
     // Starter med et nyt spil (så der er en blandet bunke, men ingen kort på hånden)
     nytSpil();
     trakHaandOgVis();
