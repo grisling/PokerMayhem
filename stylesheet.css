@@ -12,7 +12,7 @@ body {
     /* Strækker billedet så det fylder hele skærmen uden hvide kanter */
     background-size: 100% 100%;
     /* Højden præcis som skærmens vindue – undgår scroll */
-    height: 100vh;
+    min-height: 100vh;
     /* Gør body til en fleksibel beholder, så indholdet kan centreres */
     display: flex;
     flex-direction: column;

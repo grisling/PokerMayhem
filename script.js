@@ -311,6 +311,14 @@ function nytSpil() {
     // Nulstil resultatfeltet
     const resultatDiv = document.getElementById("haandResultat");
     if (resultatDiv) resultatDiv.innerText = "";
+    
+    // Nulstil og vis fjendens liv
+    fjendeLiv = 100;
+    const livBoks = document.getElementById("fjendeLivBoks");
+    if (livBoks) {
+        livBoks.style.display = "block";
+        document.getElementById("fjendeLiv").textContent = fjendeLiv;
+    }
 }
 
 // Træk 5 kort og opdater visningen
@@ -324,10 +332,6 @@ function trakHaandOgVis() {
         console.log("Pokerhånd:", haandNavn);
         const resultatDiv = document.getElementById("haandResultat");
         if (resultatDiv) resultatDiv.innerText = haandNavn;
-        
-        // Skjul fjendens liv-boks når kort er trukket
-        const livBoks = document.getElementById("fjendeLivBoks");
-        if (livBoks) livBoks.style.display = "none";
     } else {
         console.log("Ikke nok kort til at vurdere hånden.");
         const resultatDiv = document.getElementById("haandResultat");
