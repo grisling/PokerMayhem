@@ -247,7 +247,7 @@ function kontrollerBedsteHaand(kontrolHaand){
 function givSkade(){
     let bedstehaand = kontrollerBedsteHaand(haand);
     let skade = 10;
-    switch (værdi){
+    switch (bedstehaand){
         case "Straight Flush": skade = 45; break;
         case "Fire Ens": skade = 40; break;
         case "Fuldt Hus": skade = 35; break;
