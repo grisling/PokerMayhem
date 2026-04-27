@@ -16,10 +16,10 @@ body {
     /* Gør body til en fleksibel beholder, så indholdet kan centreres */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;  /* Start fra toppen */
+    align-items: center;          /* Centrer horisontalt */
+    padding-top: 30px;            /* Luft øverst */
     font-family: Arial, sans-serif;
-    position: relative;            /* Gør body til reference for absolut positionerede elementer */
 }
 
 /* Beholderen, der viser kortene på hånden */
@@ -69,15 +69,10 @@ button {
     font-weight: bold;             /* Fed skrift */
     padding: 10px 20px;            /* Luft indeni boksen */
     border-radius: 40px;           /* Runde hjørner samme som knapperne */
-    margin: 15px 0;                /* Afstand til kortene og knapperne */
+    margin-bottom: 20px;           /* Afstand til kortene */
     text-align: center;            /* Centrerer teksten */
     font-family: monospace;        /* Fast bredde på bogstaver */
     letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
-    position: absolute;            /* Absolut positionering */
-    top: 20px;                     /* Øverst på siden */
-    left: 50%;                     /* Centreret horisontalt */
-    transform: translateX(-50%);   /* Centrer boksen */
-    z-index: 1000;                 /* Sørg for at boksen vises oven på andre elementer */
 }
 
 button:hover {
