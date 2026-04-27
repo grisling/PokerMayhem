@@ -63,7 +63,7 @@ button {
 }
 .liv-boks {
     background: rgba(0,0,0,0.7);   /* Mørk, gennemsigtig baggrund, så mit smukke baggrundsbillede kan ses */
-    color: #ffaa33;                /* Orange tekst, samme orange som knapperne */
+    color: #ff0000;                /* Rød fordi Hp altid er rød i spil */
     font-size: 1.2rem;             /* Gør teksten stor og tydelig */
     font-weight: bold;             /* Fed skrift */
     padding: 10px 20px;            /* Luft indeni boksen */
