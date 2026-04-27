@@ -278,11 +278,11 @@ function hentKortSti(kortnummer) {
     const navne = [
   null, "Es", "To", "Tre", "Fire", "Fem", "Seks",
   "Syv", "Otte", "Ni", "Ti", "Knaegt", "Dame", "Konge"
-];
+    ];
 
-const værdiTekst = navne[værdi] ?? værdi.toString();
-    // Bygger den fulde sti: f.eks. "billeder/Hjerter_Es.png"
-    return `${Kort_Mappe}${kulør}_${værdiTekst}.png`;
+    værdiTekst = navne[værdi] ?? værdi.toString();
+        // Bygger den fulde sti: f.eks. "billeder/Hjerter_Es.png"
+        return `${Kort_Mappe}${kulør}_${værdiTekst}.png`;
 }
 
 // Opdaterer visningen af kortene på hånden
