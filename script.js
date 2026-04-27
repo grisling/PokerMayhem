@@ -262,7 +262,7 @@ function givSkade(){
     console.log(fjendeLiv);
 
     // Opdater livboks//
-    document.getElementById("fjendeLiv").textContent = fjendeliv
+    document.getElementById("fjendeLiv").textContent = fjendeLiv
 }
 
 // (UI)
