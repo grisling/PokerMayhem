@@ -19,6 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    position: relative;            /* Gør body til reference for absolut positionerede elementer */
 }
 
 /* Beholderen, der viser kortene på hånden */
@@ -76,6 +77,7 @@ button {
     top: 20px;                     /* Øverst på siden */
     left: 50%;                     /* Centreret horisontalt */
     transform: translateX(-50%);   /* Centrer boksen */
+    z-index: 1000;                 /* Sørg for at boksen vises oven på andre elementer */
 }
 
 button:hover {
