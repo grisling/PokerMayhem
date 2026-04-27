@@ -43,9 +43,7 @@ function bland(liste){
 }
 
 function resetDeck(){
-    console.log("woop Woop");
     deck = [...STANDARDDECK];
-    console.log(deck);
     deck = bland(deck);
 }
 
@@ -124,12 +122,12 @@ function kontrollerBedsteHaand(kontrolHaand){
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
          faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
           faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
-            return "Fire ens";
+            return "Fire Ens";
         }
         else if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
           faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
-            return "Fire ens";
+            return "Fire Ens";
         }
 
 
@@ -139,14 +137,14 @@ function kontrollerBedsteHaand(kontrolHaand){
          faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
             //Hvis der er 3 ens i starten, så skal de sidste 2 kort være ens for at det er et fuldt hus.
             if (faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
-                return "Fuldt hus";
+                return "Fuldt Hus";
             }
         }
         else if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
          faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             //Hvis der er 3 ens i slutningen, så skal de første 2 kort være ens for at det er et fuldt hus.
             if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
-                return "Fuldt hus";
+                return "Fuldt Hus";
             }
         }
 
@@ -184,17 +182,17 @@ function kontrollerBedsteHaand(kontrolHaand){
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
          faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
             console.log("tre ens");
-            return "Tre ens";
+            return "Tre Ens";
         }
         if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             console.log("tre ens");
-            return "Tre ens";
+            return "Tre Ens";
         }
         if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3]) &&
          faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("tre ens");
-            return "Tre ens";
+            return "Tre Ens";
         }
 
 
@@ -204,17 +202,17 @@ function kontrollerBedsteHaand(kontrolHaand){
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
          faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             console.log("to par");
-            return "To par";
+            return "To Par";
         }
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1]) &&
          faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("to par");
-            return "To par";
+            return "To Par";
         }
         if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2]) &&
          faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("to par");
-            return "To par";
+            return "To Par";
         }
 
 
@@ -223,22 +221,22 @@ function kontrollerBedsteHaand(kontrolHaand){
         //Der er fire måder at have et par på når de er sorteret efter værdi: AAXXX, XAAXX, XXAAX, XXXAA
         if (faaVaerdi(kontrolHaand[0]) == faaVaerdi(kontrolHaand[1])){
             console.log("par");
-            return "Et par";
+            return "Et Par";
         }
         if (faaVaerdi(kontrolHaand[1]) == faaVaerdi(kontrolHaand[2])){
             console.log("par");
-            return "Et par";
+            return "Et Par";
         }
         if (faaVaerdi(kontrolHaand[2]) == faaVaerdi(kontrolHaand[3])){
             console.log("par");
-            return "Et par";
+            return "Et Par";
         }
         if (faaVaerdi(kontrolHaand[3]) == faaVaerdi(kontrolHaand[4])){
             console.log("par");
-            return "Et par";
+            return "Et Par";
         }
         else{
-            return "Højt kort";
+            return "Højt Kort";
         }
     }
 }
@@ -249,6 +247,17 @@ function kontrollerBedsteHaand(kontrolHaand){
 function givSkade(){
     let bedstehaand = kontrollerBedsteHaand(haand);
     let skade = 10;
+    switch (værdi){
+        case "Straight Flush": skade = 45; break;
+        case "Fire Ens": skade = 40; break;
+        case "Fuldt Hus": skade = 35; break;
+        case "Flush": skade = 30; break;
+        case "Straight": skade = 25; break;
+        case "Tre Ens": skade = 20; break;
+        case "To Par": skade = 15; break;
+        case "Et Par": skade = 10; break;
+        case "Højt Kort": skade = 5; break;
+    }
     fjendeLiv = fjendeLiv - skade;
     console.log(fjendeLiv);
 
