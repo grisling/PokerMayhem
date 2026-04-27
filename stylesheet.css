@@ -69,7 +69,7 @@ button {
     font-weight: bold;             /* Fed skrift */
     padding: 10px 20px;            /* Luft indeni boksen */
     border-radius: 40px;           /* Runde hjørner samme som knapperne */
-    margin-bottom: 5px;           /* Afstand til kortene */
+    margin-bottom: -200px;           /* Afstand til kortene */
     text-align: center;            /* Centrerer teksten */
     font-family: monospace;        /* Fast bredde på bogstaver */
     letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
