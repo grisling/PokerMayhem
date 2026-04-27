@@ -72,6 +72,10 @@ button {
     text-align: center;            /* Centrerer teksten */
     font-family: monospace;        /* Fast bredde på bogstaver */
     letter-spacing: 1px;           /* Lille mellemrum mellem bogstaver gør det lettere at læse */
+    position: absolute;            /* Absolut positionering */
+    top: 20px;                     /* Øverst på siden */
+    left: 50%;                     /* Centreret horisontalt */
+    transform: translateX(-50%);   /* Centrer boksen */
 }
 
 button:hover {

@@ -324,6 +324,10 @@ function trakHaandOgVis() {
         console.log("Pokerhånd:", haandNavn);
         const resultatDiv = document.getElementById("haandResultat");
         if (resultatDiv) resultatDiv.innerText = haandNavn;
+        
+        // Skjul fjendens liv-boks når kort er trukket
+        const livBoks = document.getElementById("fjendeLivBoks");
+        if (livBoks) livBoks.style.display = "none";
     } else {
         console.log("Ikke nok kort til at vurdere hånden.");
         const resultatDiv = document.getElementById("haandResultat");
